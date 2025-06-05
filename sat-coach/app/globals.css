@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #FFFFFF; /* Manually set background to white */
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  /* background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */ /* Commenting out default background gradient */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .custom-dashed-border {
+    border-top: none;
+    border-image: repeating-linear-gradient(to right, black 0, black 20px, transparent 20px, transparent 30px) 1;
+    border-image-slice: 1;
+    border-image-width: 3px 0 0 0;
+  }
+
+  .header-dashed-border {
+    border-bottom: none;
+    border-image: repeating-linear-gradient(to right, black 0, black 20px, transparent 20px, transparent 30px) 1;
+    border-image-slice: 1;
+    border-image-width: 0 0 3px 0;
+  }
+
+  .bottom-dashed-border {
+    border-bottom: none;
+    border-image: repeating-linear-gradient(to right, black 0, black 20px, transparent 20px, transparent 30px) 1;
+    border-image-slice: 1;
+    border-image-width: 0 0 3px 0;
+  }
+}
